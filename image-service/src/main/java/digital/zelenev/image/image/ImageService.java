@@ -17,7 +17,8 @@ public class ImageService {
         imageInputBoundary.saveImage(webImageMapper.toImage(image));
     }
 
-    public Image getImageById(UUID id) {
-        return imageInputBoundary.getImageById(id);
+    public ImageDto getImageById(UUID id) {
+        Image image = imageInputBoundary.getImageById(id);
+        return webImageMapper.toDto(image);
     }
 }

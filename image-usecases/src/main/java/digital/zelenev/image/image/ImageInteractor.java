@@ -4,11 +4,9 @@ import java.util.UUID;
 
 public class ImageInteractor implements ImageInputBoundary {
 
-    private final ImageOutputBoundary imageOutputBoundary;
     private final ImageGateway imageGateway;
 
-    public ImageInteractor(ImageOutputBoundary imageOutputBoundary, ImageGateway imageGateway) {
-        this.imageOutputBoundary = imageOutputBoundary;
+    public ImageInteractor(ImageGateway imageGateway) {
         this.imageGateway = imageGateway;
     }
 

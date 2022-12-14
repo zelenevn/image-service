@@ -12,8 +12,8 @@ public class DatabaseConfiguration {
     @Bean
     public DataSource dataSource() {
         return DataSourceBuilder.create()
-                .driverClassName("org.h2.Driver")
-                .url("jdbc:h2:mem:imageDb")
+                .driverClassName("org.postgresql.Driver")
+                .url("jdbc:postgresql://database:5432/images")
                 .username("admin")
                 .password("admin")
                 .build();

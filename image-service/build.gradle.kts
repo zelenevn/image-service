@@ -4,26 +4,28 @@ plugins {
 }
 
 group = "digital.zelenev"
-version = "1.0-SNAPSHOT"
+version = "unspecified"
 
 repositories {
     mavenCentral()
 }
 
+val springBootStarterWebVersion: String by project
+val springBootStarterTestVersion: String by project
+val lombokVersion: String by project
+
 dependencies {
+    //inner project dependencies
     implementation(project(":image-usecases"))
     implementation(project(":image-service-api"))
     implementation(project(":image-dao"))
-    implementation("org.springframework.boot:spring-boot-starter-web:3.0.0")
-    // https://mvnrepository.com/artifact/org.springframework/spring-test
-    implementation("org.springframework:spring-test:6.0.2")
+    implementation(project(":image-messaging"))
 
-
-    // https://mvnrepository.com/artifact/org.projectlombok/lombok
-    compileOnly("org.projectlombok:lombok:1.18.24")
-    annotationProcessor("org.projectlombok:lombok:1.18.24")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+    //public dependencies
+    implementation("org.springframework.boot:spring-boot-starter-web:$springBootStarterWebVersion")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:$springBootStarterTestVersion")
+    compileOnly("org.projectlombok:lombok:$lombokVersion")
+    annotationProcessor("org.projectlombok:lombok:$lombokVersion")
 }
 
 tasks.getByName<Test>("test") {

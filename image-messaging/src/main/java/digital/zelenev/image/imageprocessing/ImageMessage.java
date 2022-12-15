@@ -14,8 +14,8 @@ public class ImageMessage implements Serializable {
     @JsonProperty("imageContent")
     private byte[] imageContent;
 
-    @JsonProperty("contentType")
-    private String contentType;
+    @JsonProperty("extension")
+    private String extension;
 
     @JsonProperty("length")
     private Long length;

@@ -6,14 +6,14 @@ public class Image {
 
     private byte[] imageContent;
 
-    private String contentType;
+    private String extension;
 
     private Long length;
 
-    public Image(String name, byte[] imageContent, String contentType, Long length) {
+    public Image(String name, byte[] imageContent, String extension, Long length) {
         this.name = name;
         this.imageContent = imageContent;
-        this.contentType = contentType;
+        this.extension = extension;
         this.length = length;
     }
 
@@ -33,12 +33,12 @@ public class Image {
         this.imageContent = imageContent;
     }
 
-    public String getContentType() {
-        return contentType;
+    public String getExtension() {
+        return extension;
     }
 
-    public void setContentType(String contentType) {
-        this.contentType = contentType;
+    public void setExtension(String extension) {
+        this.extension = extension;
     }
 
     public Long getLength() {

@@ -4,7 +4,7 @@ package digital.zelenev.image.imageprocessing;
 import digital.zelenev.image.image.Image;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring")
+@Mapper
 public interface ImageMessageMapper {
 
     ImageMessage toMessage(Image image);

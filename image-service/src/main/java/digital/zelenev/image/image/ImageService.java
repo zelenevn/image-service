@@ -1,23 +1,12 @@
 package digital.zelenev.image.image;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.UUID;
 
-@Service
-@RequiredArgsConstructor
-public class ImageService {
+public interface ImageService {
 
-    private final ImageInputBoundary imageInputBoundary;
-    private final MultipartFileMapper multipartFileMapper;
+    void saveImage(MultipartFile image);
 
-    public void saveImage(MultipartFile image) {
-        imageInputBoundary.saveImage(multipartFileMapper.toImage(image));
-    }
-
-    public Image getImageById(UUID id) {
-        return imageInputBoundary.getImageById(id);
-    }
+    Image getImageById(UUID id);
 }

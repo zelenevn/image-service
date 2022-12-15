@@ -21,8 +21,7 @@ public class ImageJpaEntity {
     @Column(name = "image_content")
     private byte[] imageContent;
 
-    @Column(name = "content_type")
-    private String contentType;
+    private String extension;
 
     private Long length;
 }

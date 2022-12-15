@@ -1,3 +1,5 @@
+server:
+  port: ${SERVICE_PORT}
 spring:
   servlet:
     multipart:

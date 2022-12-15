@@ -11,7 +11,7 @@ public class HttpResponseBuilderImpl implements HttpResponseBuilder {
     @Override
     public ResponseEntity<byte[]> buildImageResponseEntity(Image image) {
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("Content-Type", image.getContentType());
+        httpHeaders.add("Content-Type", "image/" + image.getExtension());
         httpHeaders.add("Content-Length", String.valueOf(image.getLength()));
 
         return new ResponseEntity<>(

@@ -1,6 +1,7 @@
 FROM arm64v8/openjdk:17
 
 # Environmet variables
+ENV SERVICE_PORT=8080
 ENV SERVICE_NAME=image-service
 ENV SERVICE_HOME=/opt/service
 ENV JAR_FILE=${SERVICE_HOME}/${SERVICE_NAME}.jar

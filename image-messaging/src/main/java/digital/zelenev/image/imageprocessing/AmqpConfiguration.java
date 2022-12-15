@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +12,18 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @Slf4j
 public class AmqpConfiguration {
+
+    @Value("${RABBITMQ_USER}")
+    private String rabbitUser;
+
+    @Value("${RABBITMQ_PASSWORD}")
+    private String rabbitPassword;
+
+    @Value("${RABBITMQ_HOST}")
+    private String host;
+
+    @Value("${RABBITMQ_PORT}")
+    private String port;
 
     @Value("${AMQP_IMAGE_PROCESSING_QUEUE}")
     private String imageProcessingQueue;
@@ -21,11 +34,16 @@ public class AmqpConfiguration {
     @Bean
     public ConnectionFactory connectionFactory() {
         CachingConnectionFactory connectionFactory = new CachingConnectionFactory();
-        connectionFactory.setPassword("admin");
-        connectionFactory.setUsername("admin");
-        connectionFactory.setHost("message-broker");
-        connectionFactory.setPort(5672);
+        connectionFactory.setPassword(rabbitPassword);
+        connectionFactory.setUsername(rabbitUser);
+        connectionFactory.setHost(host);
+        connectionFactory.setPort(Integer.parseInt(port));
         return connectionFactory;
+    }
+
+    @Bean
+    public Jackson2JsonMessageConverter jackson2JsonMessageConverter() {
+        return new Jackson2JsonMessageConverter();
     }
 
     @Bean

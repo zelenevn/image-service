@@ -14,8 +14,12 @@ public class ImageAmqpListener {
 
     private final ImageInputBoundary imageInputBoundary;
 
+    private final ImageMessageMapper imageMessageMapper;
+
     @RabbitListener(queues = "${AMQP_IMAGE_PROCESSING_RESULT_QUEUE}")
-    public void listenProcessedImage(byte[] image) {
-        imageInputBoundary.saveImage(new Image(image));
+    public void listenProcessedImage(ImageMessage imageMessage) {
+        log.info("Received image from queue. Image name: {}", imageMessage.getName());
+        Image image = imageMessageMapper.toImage(imageMessage);
+        imageInputBoundary.saveImage(image);
     }
 }

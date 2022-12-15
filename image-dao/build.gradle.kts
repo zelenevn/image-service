@@ -13,6 +13,7 @@ val springBootStarterDataJpaVersion: String by project
 val springBootStarterTestVersion: String by project
 val lombokVersion: String by project
 val postgresJdbcDriverVersion: String by project
+val mapstructVersion: String by project
 
 dependencies {
     //inner project dependencies
@@ -22,6 +23,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa:$springBootStarterDataJpaVersion")
     compileOnly("org.projectlombok:lombok:$lombokVersion")
     annotationProcessor("org.projectlombok:lombok:$lombokVersion")
+    implementation("org.mapstruct:mapstruct:$mapstructVersion")
+    annotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
     implementation("org.postgresql:postgresql:$postgresJdbcDriverVersion")
     testImplementation("org.springframework.boot:spring-boot-starter-test:$springBootStarterTestVersion")
 }

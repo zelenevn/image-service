@@ -10,8 +10,10 @@ repositories {
 }
 
 val springBootStarterAmqpVersion: String by project
+val springBootStarterJsonVersion: String by project
 val springBootStarterTestVersion: String by project
 val lombokVersion: String by project
+val mapstructVersion: String by project
 
 dependencies {
     //inner project dependencies
@@ -19,8 +21,11 @@ dependencies {
 
     //public dependencies
     implementation("org.springframework.boot:spring-boot-starter-amqp:$springBootStarterAmqpVersion")
+    implementation("org.springframework.boot:spring-boot-starter-json:$springBootStarterJsonVersion")
     compileOnly("org.projectlombok:lombok:$lombokVersion")
     annotationProcessor("org.projectlombok:lombok:$lombokVersion")
+    implementation("org.mapstruct:mapstruct:$mapstructVersion")
+    annotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
     testImplementation("org.springframework.boot:spring-boot-starter-test:$springBootStarterTestVersion")
 }
 

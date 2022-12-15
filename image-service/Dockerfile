@@ -9,6 +9,10 @@ ENV AMQP_IMAGE_PROCESSING_RESULT_QUEUE=imageProcessingReultQueut
 ENV DATABASE_USERNAME=admin
 ENV DATABASE_PASSWORD=admin
 ENV DATABASE_URL=jdbc:postgresql://database:5432/images
+ENV RABBITMQ_USER=admin
+ENV RABBITMQ_PASSWORD=admin
+ENV RABBITMQ_HOST=message-broker
+ENV RABBITMQ_PORT=5672
 
 # Copy builded jar
 ADD build/libs $SERVICE_HOME

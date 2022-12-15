@@ -11,14 +11,13 @@ import java.util.UUID;
 public class ImageService {
 
     private final ImageInputBoundary imageInputBoundary;
-    private final WebImageMapper webImageMapper;
+    private final MultipartFileMapper multipartFileMapper;
 
     public void saveImage(MultipartFile image) {
-        imageInputBoundary.saveImage(webImageMapper.toImage(image));
+        imageInputBoundary.saveImage(multipartFileMapper.toImage(image));
     }
 
-    public ImageDto getImageById(UUID id) {
-        Image image = imageInputBoundary.getImageById(id);
-        return webImageMapper.toDto(image);
+    public Image getImageById(UUID id) {
+        return imageInputBoundary.getImageById(id);
     }
 }

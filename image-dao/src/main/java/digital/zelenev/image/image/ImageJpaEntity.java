@@ -1,9 +1,6 @@
 package digital.zelenev.image.image;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,6 +15,14 @@ public class ImageJpaEntity {
     @Id
     private UUID id;
 
+    private String name;
+
     @Lob
-    private byte[] image;
+    @Column(name = "image_content")
+    private byte[] imageContent;
+
+    @Column(name = "content_type")
+    private String contentType;
+
+    private Long length;
 }

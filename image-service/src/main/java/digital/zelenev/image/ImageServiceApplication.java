@@ -7,11 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ImageServiceApplication {
 
     public static void main(String[] args) {
-        try {
-            SpringApplication.run(ImageServiceApplication.class, args);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        SpringApplication.run(ImageServiceApplication.class, args);
     }
 }
